@@ -17,3 +17,8 @@ target_link_libraries(Test PRIVATE CTF-static)
 add_subdirectory(CTFTest/Libs/SDL)
 target_link_libraries(Test PRIVATE SDL2-static)
 target_include_directories(Test PRIVATE CTFTest/Libs/SDL/include CTFTest/Libs/stb)
+
+add_executable(CTFCreate CTFCreate/Source/Main.c)
+target_link_libraries(CTFCreate PRIVATE CTF-static)
+target_include_directories(CTFCreate PRIVATE CTFTest/Libs/stb)
+target_link_libraries(CTFCreate PRIVATE m)
