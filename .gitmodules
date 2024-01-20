@@ -2,6 +2,6 @@
 	path = Test/Libs/SDL
 	url = https://github.com/libsdl-org/SDL
 	branch = SDL2
-[submodule "CTFTest/Libs/stb"]
-	path = CTFTest/Libs/stb
+[submodule "CTFCreate/Libs/stb"]
+	path = CTFCreate/Libs/stb
 	url = https://github.com/nothings/stb
