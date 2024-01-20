@@ -8,7 +8,12 @@ project(libCTF)
 
 # static
 add_library(CTF-static STATIC libCTF/Source/CTF.c libCTF/Source/CTF.h)
-target_compile_definitions(CTF-static PUBLIC CTF_STATIC)
+target_compile_definitions(CTF-static PUBLIC LIBCTF_STATIC)
+target_include_directories(CTF-static PUBLIC libCTF/Source)
 
-add_executable(Test Test/Source/Main.c)
+add_executable(Test CTFTest/Source/Main.c)
 target_link_libraries(Test PRIVATE CTF-static)
+
+add_subdirectory(CTFTest/Libs/SDL)
+target_link_libraries(Test PRIVATE SDL2-static)
+target_include_directories(Test PRIVATE CTFTest/Libs/SDL/include CTFTest/Libs/stb)

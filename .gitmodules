@@ -1,0 +1,7 @@
+[submodule "Test/Libs/SDL"]
+	path = Test/Libs/SDL
+	url = https://github.com/libsdl-org/SDL
+	branch = SDL2
+[submodule "CTFTest/Libs/stb"]
+	path = CTFTest/Libs/stb
+	url = https://github.com/nothings/stb
