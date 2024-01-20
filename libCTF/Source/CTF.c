@@ -108,7 +108,7 @@ void CTF_Image_WriteToDisk( char* path, CTF_Image* image )
 	fwrite( &image->wrapMode, 1, 1, file );
 
 	// image data
-	fwrite( image->pixels, image->width * image->height, 1, file );
+	fwrite( image->pixels, sizeof( u32 ) , image->width * image->height, file );
 
 	fclose( file );
 }
