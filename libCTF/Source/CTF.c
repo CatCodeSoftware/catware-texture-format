@@ -4,6 +4,13 @@
 #include <stdlib.h>
 #include <string.h>
 
+char ctfError[128] = "No error";
+
+char* CTF_GetError( )
+{
+	return ctfError;
+}
+
 CTF_Image* CTF_Image_Load( char* filePath )
 {
 	FILE* file = fopen( filePath, "rb" );
@@ -17,7 +24,10 @@ CTF_Image* CTF_Image_Load( char* filePath )
 
 	int diffrence = strcmp( header, desiredHeader );
 	if ( diffrence != 0 )
+	{
+		strcpy( ctfError, "Not a CTF file!" );
 		return 0;
+	}
 
 	fread( &versionMajor, 1, 1, file );
 	fread( &versionMinor, 1, 1, file );
@@ -72,7 +82,10 @@ void CTF_Image_WriteToDisk( char* path, CTF_Image* image )
 	FILE* file = fopen( path, "wb" );
 
 	if ( file == NULL )
-		perror( "Error reading file: " );
+	{
+		strcpy( ctfError, "Error when opening file" );
+		return;
+	}
 
 	// printf( "a" );
 

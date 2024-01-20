@@ -55,6 +55,8 @@ typedef struct
 	u32* pixels; // rgba
 } CTF_Image;
 
+char* CTF_GetError( );
+
 CTF_Image* CTF_Image_Load( char* filePath );
 CTF_Image* CTF_Image_Create( u32* pixels, u16 width, u16 height, CTF_ScalingMethod scalingMethod, CTF_WrapMode wrapMode );
 void CTF_Image_Destroy( CTF_Image* image );
